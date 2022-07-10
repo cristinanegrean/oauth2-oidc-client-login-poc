@@ -1,0 +1,37 @@
+server:
+  port: 3000
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.auth0.example: TRACE
+    org.springframework.security: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          tulip:
+            client-id: replace-with-tulip-tenant-client-id
+            client-secret: replace-with-tulip-tenant-client-secret
+            authorization-grant-type: authorization_code
+            scope:
+              - openid
+              - profile
+            client-name: iWelcome Tulip
+            client-authentication-method: CLIENT_SECRET_POST
+            redirect-uri: 'http://localhost:3000/login/oauth2/code/tulip'
+        provider:
+          tulip:
+#            issuer-uri: 'https://insurgroup-edge.iwelcome.com/insurcar/login/oauth2/v1/.well-known/openid-configuration'
+            authorization-uri: 'https://insurgroup-edge.iwelcome.com/auth/oauth2.0/v1/authorize'
+            token-uri: 'https://insurgroup-edge.iwelcome.com/auth/oauth2.0/v1/access_token'
+            user-info-uri: 'https://insurgroup-edge.iwelcome.com/auth/oauth2.0/v1/userinfo'
+            jwk-set-uri: 'https://insurgroup-edge.iwelcome.com/auth/oauth2.0/v1/connect/jwk_uri'
+
+
+
+
+

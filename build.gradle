@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://repo.spring.io/plugins-release' }
+    }
+}
+
+
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "2.7.1"
+    id "io.spring.dependency-management" version "1.0.12.RELEASE"
+}
+
+group = 'cristina.tech'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // spring-boot-starter + spring-security-core + spring-security-config + spring-security-oauth2-client + spring-security-oauth2-jose
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+}
