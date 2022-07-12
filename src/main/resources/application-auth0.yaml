@@ -14,8 +14,8 @@ spring:
       client:
         registration:
           auth0:
-            client-id: replace-with-auth0-tenant-client-id
-            client-secret: replace-with-auth0-tenant-client-secret
+            client-id: o4zDT9vWYjW7YnI0XtD3I6bXRVhAvPFm
+            client-secret: RSzm2Dx7av_ZrZbnmg9VUTs4G22gO6VoVGv3_LYAsWnN4iSFAjz9O1HPqRs7Idzo
             scope:
             - openid
             - profile
