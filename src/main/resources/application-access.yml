@@ -1,0 +1,33 @@
+server:
+  port: 3000
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.auth0.example: TRACE
+    org.springframework.security: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          access:
+            client-id: ns_test_portal
+            client-secret: 557D779ADDFAF96CED6BE593944DCF6731CC58563F3321CF4653078791083A72
+            authorization-grant-type: authorization_code
+            scope:
+            - openid
+            - profile
+            client-name: OneWelcome Access
+            client-authentication-method: CLIENT_SECRET_POST
+            redirect-uri: 'http://localhost:7878/oauth'
+        provider:
+          access:
+            # issuer-uri: 'http://localhost:7878/oauth/login/oauth2/v1'
+            authorization-uri: 'http://localhost:7878/oauth/authorize?Onegini-Tenant-ID=bfd3087c-f932-11ec-b939-0242ac120006'
+            token-uri: 'http://localhost:7878/oauth/token'
+            # user-info-uri: 'http://localhost:7878/oauth/userinfo'
+            # jwk-set-uri: 'http://localhost:7878/oauth/jwk_uri'
+

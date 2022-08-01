@@ -15,6 +15,9 @@
             <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'auth0')}">
                  <div class="navbar-brand logo"></div>
             </span>
+            <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'access')}">
+                 <img class="mb-3 app-logo" src="/images/access.png" alt="Access" width="32" height="32"/>
+            </span>
             <button
                     class="navbar-toggler"
                     type="button"
@@ -42,6 +45,9 @@
                         </span>
                         <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'auth0')}">
                             <a th:href="@{/oauth2/authorization/auth0}" id="qsLoginBtn" class="btn btn-primary btn-block">Login</a>
+                        </span>
+                        <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'access')}">
+                            <a th:href="@{/oauth2/authorization/access}" id="qsLoginBtn" class="btn btn-primary btn-block">Login</a>
                         </span>
                     </li>
                     <!-- / Login button -->
