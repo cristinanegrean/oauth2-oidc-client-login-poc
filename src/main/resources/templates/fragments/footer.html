@@ -4,24 +4,10 @@
     <title>Footer</title>
 </head>
 <footer th:fragment="footer" class="bg-light p-3 text-center">
-    <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'auth0')}">
-        <div class="logo"></div>
+    <span>
+        <!--<img class="mb-3 app-logo" src="/images/authentik.svg" alt="Authentik" width="65" height="65"/>-->
         <p>
-            Sample project for authenticating user to protected profile resource using Auth0 as multi-tenant Authorization Server
-            <a href="https://auth0.com">Auth0 Gateway POC</a>
-        </p>
-    </span>
-    <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'tulip')}">
-        <img class="mb-3 app-logo" src="/images/tulip.png" alt="Tulip" width="32" height="32"/>
-        <p>
-            Sample project for authenticating user to protected profile resource using custom OAuth 2.0 Server Tulip as single-tenant Authorization Server
-            <a href="https://insurgroup-edge.iwelcome.com/insurcar/login/oauth2/v1/.well-known/openid-configuration">iWelcome Insurcar POC</a>
-        </p>
-    </span>
-    <span th:if="${#arrays.contains(@environment.getActiveProfiles(),'access')}">
-        <img class="mb-3 app-logo" src="/images/access.png" alt="Access" width="32" height="32"/>
-        <p>
-            Sample project for authenticating user to protected profile resource using custom OAuth 2.0 Server Tulip. Calls are proxied via Access, which acts as multi-tenant IDP to Client's Portal and abstracts Tulip IDP.
+            Sample project for authenticating user to protected profile resource using custom OAuth 2.0/OIDC Server Authentik.
         </p>
     </span>
 </footer>

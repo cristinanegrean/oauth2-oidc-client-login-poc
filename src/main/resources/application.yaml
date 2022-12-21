@@ -1,0 +1,31 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /admin
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.auth0.example: TRACE
+    org.springframework.security: DEBUG
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          custom:
+            client-id: PUT_HERE_CLIENT_ID
+            client-secret: PUT_HERE_CLIENT_SECRET
+            client-name: subway-dev-spring-admin-app
+            scope: openid,profile,firstname_lastname,role,email
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/admin/login/oauth2/code/custom
+        provider:
+          custom:
+            authorization-uri: https://auth.tools.nederlandseloterij.nl/application/o/authorize/
+            issuer-uri:  https://auth.tools.nederlandseloterij.nl/application/o/subway-dev-spring-admin-app/
+            jwk-set-uri: https://auth.tools.nederlandseloterij.nl/application/o/subway-dev-spring-admin-app/jwks/
+            token-uri: https://auth.tools.nederlandseloterij.nl/application/o/token/
+            user-info-uri: https://auth.tools.nederlandseloterij.nl/application/o/userinfo/

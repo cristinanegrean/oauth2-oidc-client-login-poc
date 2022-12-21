@@ -8,32 +8,13 @@ This sample demonstrates [flow](https://auth0.com/docs/get-started/authenticatio
 
 ## Pre-requisites
 
-* Java 17, i.e.: IBM Semeru Runtime Open Edition 17.0.3.0
+* Java 17
 
-## Configuration
+### Callback URL for debugging
 
-### Callback URLs
-
-When using `tulip` profile, below apply:
-* Redirect URL `http://localhost:3000/login/oauth2/code/tulip` is white-listed in the custom `OAuth 2.0 authorization server`, hereby called `tulip`.
-
-When using `auth0` profile, below apply:
-* On the [Auth0 Dashboard](https://manage.auth0.com/#/clients) create a new Application of type **Regular Web Application**.
-* On the **Settings** tab of your application, add the URL `http://localhost:3000/login/oauth2/code/auth0` to the **Allowed Callback URLs** field. 
-* On the **Settings** tab of your application, add the URL `http://localhost:3000/` to the **Allowed Logout URLs** field.
+* http://localhost:8080/admin/login/oauth2/code/custom
 
 See [here](https://docs.spring.io/spring-security/site/docs/5.2.12.RELEASE/reference/html/oauth2.html#oauth2login-sample-redirect-uri) more details.
-
-### Application configuration
-
-See the application configuration values in:
-* `src/main/resources/application-tulip.yml` for `spring.profiles.active=tulip`
-* `src/main/resources/application-auth0.yml` for `spring.profiles.active=auth0`
-
-You will have to replace `spring.security.oauth2.client.registration.[registrationId].client-id` and `spring.security.oauth2.client.registration.[registrationId].client-secret`
-properties values with the ones you have in your `Auth0 dashboard: Regular Web Application manage` or your own custom `OAuth 2.0 authorization server`.
-
-See [here](https://docs.spring.io/spring-security/site/docs/5.2.12.RELEASE/reference/html/oauth2.html#oauth2login-sample-application-config) more details.
 
 ### Running the sample
 
@@ -42,11 +23,13 @@ Open a terminal, go to the project root directory and run the following command:
 Linux or MacOS:
 
 ```bash
-./gradlew bootRun --args='--spring.profiles.active=tulip'
-./gradlew bootRun --args='--spring.profiles.active=auth0'
+./gradlew bootRun
 ```
 
-The application will be accessible at http://localhost:3000.
+Or even use IntelliJ IDEA to put break point in `NimbusJwtDecoder` and use `Services` tab to run Spring Boot `DemoApplication` in `debug` mode.
+
+The application will be accessible at http://localhost:8080/admin. The whole authentication flow starts on `Login` button. Once authenticated, 
+you will get access to protected resource `Profile` page.
 
 ## License
 
@@ -54,10 +37,7 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 ## Concepts
 
-`Tulip` is an Identity Provider platfom (IdP), the source for validating user identity in a federated identity system.
-Tulip is built on top of Open Access Management [openam](https://github.com/OpenIdentityPlatform/OpenAM) and is `single-tenant`.
-
-`Auth0` is an Identity Provider platform (IdP) to add sophisticated authentication and authorization to your applications. 
+`Auth0` and `Authentik` are Identity Provider platforms (IdPs) to add sophisticated authentication and authorization to your applications. 
 Centralize and manage users from multiple identity providers and give them branded, seamless signup and login experiences.
 
 The `OAuth 2.0` protocol controls authorization to access a protected resource, like: your web app, native app, or API service, through:
